@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test'
 import { env } from './env'
 
 export default defineConfig({
@@ -22,5 +22,5 @@ export default defineConfig({
       testMatch: '**/*petstore.spec.ts',
     },
   ],
-});
+})
 

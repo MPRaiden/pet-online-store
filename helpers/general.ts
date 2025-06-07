@@ -1,5 +1,5 @@
-import { faker } from '@faker-js/faker';
-import { Pet } from '../data/types';
+import { faker } from '@faker-js/faker'
+import { Pet } from '../data/types'
 
 export function generatePetData(): Pet {
   return {
@@ -17,6 +17,6 @@ export function generatePetData(): Pet {
       },
     ],
     status: faker.helpers.arrayElement(['available', 'pending', 'sold']),
-  };
+  }
 }
 
