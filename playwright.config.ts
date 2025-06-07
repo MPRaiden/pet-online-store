@@ -1,9 +1,5 @@
 import { defineConfig } from '@playwright/test';
-import dotenv from 'dotenv';
-import path from 'path';
-
-// Load environment variables from .env file
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+import { env } from './env'
 
 export default defineConfig({
   testDir: './tests',
@@ -17,7 +13,7 @@ export default defineConfig({
     extraHTTPHeaders: {
       accept: 'application/json',
       'content-type': 'application/json',
-      api_key: process.env.API_KEY || '',
+      api_key: env.API_KEY,
     },
   },
   projects: [
