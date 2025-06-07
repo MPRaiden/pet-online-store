@@ -1,32 +1,21 @@
 import { test, expect } from '@playwright/test';
+import { generatePetData } from '../helpers/general';
+import { validatePetResponse } from '../validation/general';
+import { baseURL } from '../data/constants';
 
-test('Verify full request URL', async ({ request }) => {
-  const baseURL = 'https://petstore.swagger.io/v2';
+test('Verify full request URL with randomized pet data', async ({ request }) => {
   const endpoint = '/pet';
   const fullURL = baseURL + endpoint
 
-  const response = await request.post(fullURL, {
-    data: {
-      id: 0,
-      category: {
-        id: 0,
-        name: 'string',
-      },
-      name: 'Lota',
-      photoUrls: ['string'],
-      tags: [
-        {
-          id: 0,
-          name: 'string',
-        },
-      ],
-      status: 'available',
-    },
-  });
+  const petData = generatePetData()
 
-  expect(response.status()).toBe(200);
-  const responseBody = await response.json();
-  expect(responseBody.name).toBe('Lota');
-  expect(responseBody.status).toBe('available');
-});
+  const response = await request.post(fullURL, {
+    data: petData,
+  })
+
+  expect(response.status()).toBe(200)
+  const responseBody = await response.json()
+
+  validatePetResponse(responseBody, petData)
+})
 
