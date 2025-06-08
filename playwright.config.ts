@@ -3,7 +3,7 @@ import { env } from './env'
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
@@ -18,8 +18,23 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'pet-online-store',
-      testMatch: '**/*petstore.spec.ts',
+      name: 'data-setup',
+      testMatch: '**/*-setup.spec.ts',
+    },
+    {
+      name: 'get-pet-online-store',
+      dependencies: ['data-setup'],
+      testMatch: '**/*get-pet-petstore.spec.ts',
+    },
+    {
+      name: 'create-pet-online-store',
+      dependencies: ['data-setup'],
+      testMatch: '**/*create-pet-petstore.spec.ts',
+    },
+    {
+      name: 'update-pet-online-store',
+      dependencies: ['data-setup'],
+      testMatch: '**/*update-pet-petstore.spec.ts',
     },
   ],
 })
