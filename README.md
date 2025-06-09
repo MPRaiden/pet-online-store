@@ -50,7 +50,11 @@ This project includes a GitHub Actions workflow (.github/workflows/playwright-sc
 Jobs
 data-setup – Runs first and uploads petData.json for downstream tests
 
-get-pet-online-store – Depends on data-setup, downloads test data and runs tests
+get-pet-online-store - Runs GET requests against the previously added pets (previous job/project)
+
+update-pet-online-store - Runs POST requests / tests
+
+create-pet-online-store - Runs GET requests / tests
 
 
 ## Secrets required:
