@@ -5,30 +5,6 @@ This repository contains automated tests for the [Swagger Petstore API](https://
 
 ---
 
-## 📁 Project Structure
-
-pet-online-store/
-├── .github/workflows/ # CI configuration for GitHub Actions
-│ └── playwright-schedule.yml
-├── data/ # Constants and shared types
-│ ├── constants.ts
-│ └── types.ts
-├── helpers/ # Utility functions (e.g. pet data generation)
-│ └── general.ts
-├── tests/ # All Playwright test files
-│ ├── create-pet-petstore.spec.ts
-│ ├── data-setup.spec.ts
-│ ├── get-pet-petstore.spec.ts
-│ └── update-pet-petstore.spec.ts
-├── validation/ # Validation helpers (if needed)
-│ └── general.ts
-├── env.ts # Environment variables (e.g. API key)
-├── eslint.config.mjs # ESLint configuration
-├── package.json
-├── package-lock.json
-├── playwright.config.ts # Playwright configuration
-└── tsconfig.json # TypeScript config
-
 
 ## Install Playwright browsers
 npx playwright install --with-deps
