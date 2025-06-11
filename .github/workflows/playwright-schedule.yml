@@ -1,7 +1,7 @@
 name: Scheduled Playwright Tests
 on:
   schedule:
-    - cron: '0 * * * *' # Every hour at minute 0 UTC
+    - cron: '30 2 * * *' # Once a day
   workflow_dispatch: # Optional: allows manual triggering
 jobs:
   data-setup:
