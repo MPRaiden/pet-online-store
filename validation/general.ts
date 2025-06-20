@@ -7,8 +7,8 @@ import { Pet } from '../data/types'
 @param {Pet} expectedData - HTTP request expected data (generated through generatePetData helper function using faker.js npm package.
 */
 export function validatePetResponse(responseBody: Pet, expectedData: Pet): void {
-  expect(responseBody.id).toBe(expectedData.id)
-  expect(responseBody.name).toBe(expectedData.name)
+  expect.soft(responseBody.id).toBe(expectedData.id)
+  expect.soft(responseBody.name).toBe(expectedData.name)
   expect(responseBody.status).toBe(expectedData.status)
   expect(responseBody.category.id).toBe(expectedData.category.id)
   expect(responseBody.category.name).toBe(expectedData.category.name)

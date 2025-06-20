@@ -1,8 +1,8 @@
-name: Scheduled Playwright Tests
-on:
-  schedule:
-    - cron: '30 2 * * *' # Once a day
-  workflow_dispatch: # Optional: allows manual triggering
+# name: Scheduled Playwright Tests
+# on:
+#   schedule:
+#     - cron: '30 2 * * *' # Once a day
+#   workflow_dispatch: # Optional: allows manual triggering
 jobs:
   data-setup:
     runs-on: ubuntu-latest
